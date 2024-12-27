@@ -31,11 +31,17 @@ from pytube import Playlist  #Youtube Playlist Extractor
 from yt_dlp import YoutubeDL
 import yt_dlp as youtube_dl
 
-# Initialize bot
-bot = Client("bot",
-             bot_token=BOT_TOKEN,
-             api_id=API_ID,
-             api_hash=API_HASH)
+# Initialize the bot
+bot = Client(
+    "bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
+
+API_ID    = os.environ.get("API_ID", "24495656")
+API_HASH  = os.environ.get("API_HASH", "61afcf68c6429714dd18acd07f246571")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8040014845:AAHAo3zgpikp-4j2PLQofMxSwtoOdQKTQLg") 
 
 # Get the MongoDB collection for this bot
 collection = get_collection(BOT_NAME, MONGO_URI)
